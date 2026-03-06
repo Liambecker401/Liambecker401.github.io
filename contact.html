@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Liam Becker</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="/index.html">Liam Becker</a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/projects.html">Projects</a></li>
+          <li><a href="/resume.html">Resume</a></li>
+          <li><a class="active" href="/contact.html">Contact</a></li>
+          <li><a href="/vault/">Vault</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <h1>Contact</h1>
+      <p class="lead">I am always open to conversations about finance, consulting, AI strategy, and new collaboration opportunities.</p>
+      <ul class="list">
+        <li>Email: <a href="mailto:lbecker6@elon.edu">lbecker6@elon.edu</a></li>
+        <li>Phone: (516) 401-7713</li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/liam-becker" target="_blank" rel="noopener">linkedin.com/in/liam-becker</a></li>
+      </ul>
+      <div class="button-row">
+        <button id="copy-email" class="btn btn-primary" type="button">Copy Email</button>
+        <span id="copy-status" aria-live="polite"></span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Liam Becker
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const button = document.getElementById('copy-email');
+    const status = document.getElementById('copy-status');
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('lbecker6@elon.edu');
+        status.textContent = 'Email copied to clipboard.';
+      } catch (err) {
+        status.textContent = 'Unable to copy automatically. Email: lbecker6@elon.edu';
+      }
+    });
+  </script>
+</body>
+</html>

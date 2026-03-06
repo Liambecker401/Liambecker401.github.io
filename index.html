@@ -1,10 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liam Becker | Finance, Consulting & AI</title>
+  <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is my first site hosted on GitHub.</p>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="/index.html">Liam Becker</a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a class="active" href="/index.html">Home</a></li>
+          <li><a href="/projects.html">Projects</a></li>
+          <li><a href="/resume.html">Resume</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/vault/">Vault</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <img class="headshot" src="/assets/headshot.png" alt="Headshot of Liam Becker" onerror="this.style.display='none';document.getElementById('headshot-placeholder').style.display='flex';" />
+        <div class="placeholder-headshot" id="headshot-placeholder">Headshot placeholder<br/>Upload <code>/assets/headshot.png</code></div>
+      </div>
+      <div>
+        <h1>Liam Becker</h1>
+        <p class="lead">Finance and consulting professional focused on translating AI strategy into measurable business impact.</p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="/projects.html">View Projects</a>
+          <a class="btn btn-secondary" href="/resume.html">See Resume</a>
+          <a class="btn btn-secondary" href="/contact.html">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>About</h2>
+      <p>
+        I am a Finance major and Human Resources minor at Elon University, where I maintain a 3.93 GPA and plan to graduate in May 2026.
+        As an EY FSRM Consulting Intern, I worked on risk transformation initiatives, supported collateral optimization model development, and built client-ready deliverables.
+        I also serve as an AI Integration Leader at ElonAI, partnering with OpenAI to deliver workshops and support board-level strategy around practical AI adoption.
+        On campus, I lead as President of the AI &amp; Emerging Tech Club and as Vice President of Finance for Beta Theta Pi, where I oversee responsible budgeting and financial planning.
+        As an Honors Fellow researcher, I study the financial impact of corporate AI adoption and evaluate how organizations can align innovation with long-term value creation.
+        Across each role, I focus on combining structured analysis, communication, and leadership to drive outcomes that are both strategic and executable.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Highlights</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Consulting</h3>
+          <p>Hands-on experience in risk transformation workstreams and data-backed client deliverables through EY FSRM.</p>
+        </article>
+        <article class="card">
+          <h3>AI Leadership</h3>
+          <p>Scaled AI enablement through ElonAI workshops, resources, and strategic collaboration with OpenAI initiatives.</p>
+        </article>
+        <article class="card">
+          <h3>Research</h3>
+          <p>Honors Fellow research centered on quantifying how corporate AI adoption affects financial outcomes.</p>
+        </article>
+        <article class="card">
+          <h3>Finance Leadership</h3>
+          <p>Budget oversight and financial stewardship as VP Finance for Beta Theta Pi.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Liam Becker · Finance · Consulting · AI
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
