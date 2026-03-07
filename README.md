@@ -10,8 +10,9 @@ Public pages:
 - `/resume.html`
 - `/contact.html`
 
-Protected page:
-- `/vault/` (requires Basic Auth via Cloudflare Pages Functions middleware)
+Protected pages and files:
+- `/vault/`
+- `/vault/files/...`
 
 ## Public Asset Uploads
 
@@ -26,13 +27,16 @@ Upload files into these folders:
 - `vault/files/work/`
 - `vault/files/personal/`
 
+Nested subfolders are supported (for example `vault/files/school/2026/Syllabus.pdf`).
+
 Then commit and push. On deploy, the build script regenerates `vault/index.html` and auto-lists filenames in each category.
 
 ### Notes
-- Listing is non-recursive (top-level files only).
+- Listing is recursive for each category.
 - Hidden files and `.gitkeep` are ignored.
 - Filenames are displayed exactly as they appear.
-- Vault nav links use `/vault/?reauth=1` to trigger a fresh Basic Auth challenge whenever users click Vault from the site.
+- Opening the Vault nav link uses `/vault/?reauth=1` and clears the active session.
+- After opening a file under `/vault/files/...`, the session is cleared so the next Vault request requires login again.
 
 ## Local Build
 
