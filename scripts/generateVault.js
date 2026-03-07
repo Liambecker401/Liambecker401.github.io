@@ -6,6 +6,31 @@ const vaultDir = path.join(root, 'vault');
 const filesDir = path.join(vaultDir, 'files');
 const categories = ['school', 'work', 'personal'];
 
+function getVisibleFilesRecursive(baseDir, relativeDir = '') {
+  const currentDir = path.join(baseDir, relativeDir);
+  const entries = fs.readdirSync(currentDir, { withFileTypes: true });
+
+  return entries
+    .flatMap((entry) => {
+      if (entry.name.startsWith('.')) {
+        return [];
+      }
+
+      const entryRelativePath = path.join(relativeDir, entry.name);
+
+      if (entry.isDirectory()) {
+        return getVisibleFilesRecursive(baseDir, entryRelativePath);
+      }
+
+      if (!entry.isFile() || entry.name === '.gitkeep') {
+        return [];
+      }
+
+      return [entryRelativePath];
+    })
+    .sort((a, b) => a.localeCompare(b));
+}
+
 function getVisibleFiles(category) {
   const categoryDir = path.join(filesDir, category);
 
@@ -13,12 +38,7 @@ function getVisibleFiles(category) {
     return [];
   }
 
-  return fs
-    .readdirSync(categoryDir, { withFileTypes: true })
-    .filter((entry) => entry.isFile())
-    .map((entry) => entry.name)
-    .filter((name) => !name.startsWith('.') && name !== '.gitkeep')
-    .sort((a, b) => a.localeCompare(b));
+  return getVisibleFilesRecursive(categoryDir);
 }
 
 function renderLinks(category, label) {
@@ -30,7 +50,11 @@ function renderLinks(category, label) {
 
   const links = files
     .map((file) => {
-      const href = `/vault/files/${category}/${encodeURIComponent(file)}`;
+      const encodedFilePath = file
+        .split(path.sep)
+        .map((part) => encodeURIComponent(part))
+        .join('/');
+      const href = `/vault/files/${category}/${encodedFilePath}`;
       return `<li><a href="${href}">${file}</a></li>`;
     })
     .join('\n            ');
