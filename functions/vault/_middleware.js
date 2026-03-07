@@ -4,6 +4,9 @@ export async function onRequest(context) {
   const user = context.env.VAULT_USER;
   const pass = context.env.VAULT_PASS;
   const hasReauthCookie = context.request.headers.get('Cookie')?.includes('vault_reauth=1');
+  const authHeader = context.request.headers.get('Authorization');
+  const user = context.env.VAULT_USER;
+  const pass = context.env.VAULT_PASS;
 
   if (!user || !pass) {
     return new Response('Vault credentials are not configured.', {
@@ -71,5 +74,15 @@ function unauthorized(options = {}) {
   return new Response('Authentication required.', {
     status: 401,
     headers
+  return context.next();
+}
+
+function unauthorized() {
+  return new Response('Authentication required.', {
+    status: 401,
+    headers: {
+      'WWW-Authenticate': 'Basic realm="Vault"',
+      'content-type': 'text/plain; charset=utf-8'
+    }
   });
 }
