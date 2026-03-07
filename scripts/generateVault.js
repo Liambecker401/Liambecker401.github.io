@@ -65,7 +65,7 @@ const html = `<!DOCTYPE html>
           <li><a href="/projects.html">Projects</a></li>
           <li><a href="/resume.html">Resume</a></li>
           <li><a href="/contact.html">Contact</a></li>
-          <li><a class="active" href="/vault/">Vault</a></li>
+          <li><a class="active" href="/vault/?reauth=1">Vault</a></li>
         </ul>
       </nav>
     </div>
