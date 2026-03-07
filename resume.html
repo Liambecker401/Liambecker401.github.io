@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume | Liam Becker</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="/index.html">Liam Becker</a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/projects.html">Projects</a></li>
+          <li><a class="active" href="/resume.html">Resume</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/vault/?reauth=1">Vault</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <h1>Resume</h1>
+      <p class="lead">Download or open the latest resume PDF.</p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="/assets/resume.pdf" target="_blank" rel="noopener">Open Resume PDF</a>
+        <a class="btn btn-secondary" href="/assets/resume.pdf" download>Download Resume</a>
+      </div>
+      <p>If <code>/assets/resume.pdf</code> has not been uploaded yet, these buttons will become active once the file is added.</p>
+    </section>
+
+    <section class="section">
+      <h2>Experience &amp; Leadership Snapshot</h2>
+      <ul class="list">
+        <li>EY FSRM Consulting Intern: risk transformation support, collateral optimization modeling, and client deliverables.</li>
+        <li>AI Integration Leader at ElonAI: OpenAI collaboration, AI workshops, and strategic AI planning support.</li>
+        <li>President, AI &amp; Emerging Tech Club: leads programming around applied AI and emerging technologies.</li>
+        <li>VP Finance, Beta Theta Pi: budgeting, planning, and financial governance.</li>
+        <li>Honors Fellow Researcher: financial impact analysis of corporate AI adoption.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Liam Becker
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

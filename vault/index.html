@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault | Liam Becker</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="/index.html">Liam Becker</a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/projects.html">Projects</a></li>
+          <li><a href="/resume.html">Resume</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a class="active" href="/vault/?reauth=1">Vault</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <h1>Vault</h1>
+      <p class="lead">Protected file archive. After authentication, choose a section to access files.</p>
+      <div class="vault-columns">
+        <section class="card"><h2>School</h2><p>No files yet.</p></section>
+        <section class="card"><h2>Work</h2><p>No files yet.</p></section>
+        <section class="card"><h2>Personal</h2><p>No files yet.</p></section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Liam Becker
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
