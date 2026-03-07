@@ -45,3 +45,5 @@ export async function onRequest(context) {
           'content-type': 'text/plain; charset=utf-8'
         }
       });
+    }
+    
